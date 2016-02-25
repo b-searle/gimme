@@ -16,8 +16,10 @@ gulp.task('sass', function() {
 });
 
 gulp.task('browser-sync', ['serve'], function() {
+    var port = process.env.PORT || 8080;
+    var ip = process.env.IP || 'localhost';
     browserSync.init(null, {
-        proxy: process.env.IP + ':' + process.env.PORT,
+        proxy: ip + ':' + port,
         files: ['client/**/*.*'],
         port: 8082
     });
